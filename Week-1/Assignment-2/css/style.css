@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+}
+
+/* Upper line with logo, site name plus navigation bar */
+
+#header-container {
+    vertical-align: top;
+    height: 60px;
+}
+
+#header-container p{
+    margin: 0;
+}
+
+#title-logo {
+    display: inline-block;
+    height: 100%;
+    line-height: 60px; 
+}
+
+#logo {
+    height: 1em; /* This controls the logo's height relative to its parent */
+    width: auto; /* Maintains the logo's aspect ratio */
+}
+
+nav, nav ul {
+    display: inline-block;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+}
+nav ul li {
+    display: inline;
+}
+
+/* Greeting */
+
+#greeting{
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    line-height: 300px;
+    background-color: wheat;
+}
+
+/* Main section */
+
+
+.content-grid {
+    display: none;
+}
