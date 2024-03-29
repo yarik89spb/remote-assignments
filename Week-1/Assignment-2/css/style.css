@@ -36,6 +36,7 @@ nav ul li{
 #greeting{
     width: 100%;
     font-size: 3em;
+    font-family: 'Lucida Handwriting', cursive;
     text-align: center;
     line-height: 300px;
     background-color: wheat;
@@ -43,7 +44,37 @@ nav ul li{
 
 /* Main section */
 
+main h2{
+    text-align: center;
+    font-size: 2em;
+}
 
 .content-grid {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    font-size: 2em;
+}
+
+.content-grid p{
+    flex: 1 1 calc(40% - 5px);
+    width: 450px;
+    height: 5em;
+    margin: 10px 50px;
+    background-color: SandyBrown;
+    text-align: center;
+    vertical-align: top;
+}
+
+#go {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: auto; 
+    margin: 10px 45%; 
+    background-color: salmon;
+    border-style: dashed;
+    font-family: 'Lucida Handwriting', cursive;
 }
