@@ -3,35 +3,32 @@ body{
 }
 
 /* Upper line with logo, site name plus navigation bar */
-
-#header-container {
-    vertical-align: top;
-    height: 60px;
+#header-container div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;   
+    margin-bottom: 0;
 }
 
-#header-container p{
-    margin: 0;
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0px;
 }
 
-#title-logo {
-    display: inline-block;
-    height: 100%;
-    line-height: 60px; 
+nav ul li{
+    margin: 0em 1em;
 }
 
-#logo {
-    height: 1em; /* This controls the logo's height relative to its parent */
-    width: auto; /* Maintains the logo's aspect ratio */
+#title-logo{
+    margin: 0em 1em;
 }
 
-nav, nav ul {
-    display: inline-block;
-    height: 100%;
-    list-style-type: none;
-    margin: 0;
-}
-nav ul li {
-    display: inline;
+#logo{
+    max-height: 1em;
+    width: auto;
 }
 
 /* Greeting */
