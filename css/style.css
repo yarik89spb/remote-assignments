@@ -1,0 +1,38 @@
+body{
+    width: 1200px;
+}
+
+header{
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.weekly-submission{
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: 0px;  
+    flex-basis: 50%;
+}
+
+.weekly-submission h2{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.homework-list{
+    display: flex;
+    max-width: 600px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.flex-item{
+    align-self: left;
+    margin: 10px;
+    min-height: 3em;
+    border: 1px solid #000;
+    background-color: rgba(127 199 121 / 0.3);
+}
