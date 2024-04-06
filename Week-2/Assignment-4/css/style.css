@@ -1,0 +1,112 @@
+/* Media queries */
+
+@media (min-width: 1201px){
+    .content-grid{
+        width: 1200px;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+/* Styling elements */ 
+
+body{display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* Upper line with logo, site name plus navigation bar */
+#header-container div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;   
+    margin-bottom: 0;
+}
+
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0px;
+}
+
+nav ul li{
+    margin: 0em 1em;
+}
+
+#title-logo{
+    margin: 0em 1em;
+}
+
+#logo{
+    max-height: 1em;
+    width: auto;
+}
+
+/* Greeting */
+
+#greeting{
+    width: 100%;
+    font-size: 3em;
+    font-family: 'Lucida Handwriting', cursive;
+    text-align: center;
+    line-height: 300px;
+    background-color: wheat;
+}
+
+#greeting:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+
+}
+
+/* Main section */
+
+main h2{
+    text-align: center;
+    font-size: 2em;
+}
+
+.content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    
+    gap: 1em;
+    font-size: 2em;
+}
+
+/*  Hide all elemenets if class == hidden*/
+
+.hidden{
+    display: none;
+}
+
+
+.content-grid p{
+    flex: 1 1 calc(40% - 5px);
+    width: 450px;
+    height: 5em;
+    margin: 10px 50px;
+    background-color: SandyBrown;
+    text-align: center;
+    vertical-align: top;
+}
+
+#more {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: auto; 
+    margin: 10px 45%; 
+    background-color: salmon;
+    border-style: dashed;
+    font-size: 2em;
+    font-family: 'Lucida Handwriting', cursive;
+    cursor: pointer;
+}
