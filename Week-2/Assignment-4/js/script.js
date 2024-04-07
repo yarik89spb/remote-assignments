@@ -8,7 +8,7 @@ welcome.addEventListener('click', () => {
 let hideButton = document.getElementById('more');
 let hiddenParagraph = document.querySelector('.hidden');
 hideButton.addEventListener('click', () => {
-    if(hiddenParagraph.style.display === 'none'){
+    if(hiddenParagraph.style.display === 'none' || hiddenParagraph.style.display === ''){
         hiddenParagraph.style.display = 'flex';
         hiddenParagraph.scrollIntoView();
         hideButton.innerText = 'Show less';
