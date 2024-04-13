@@ -1,0 +1,17 @@
+extends layout.pug
+
+block content
+    section#content 
+        p
+            if username
+                h2 Hi #{username}! 
+                
+            else
+                form(action='/trackName', method='get')
+                    label Choose username: 
+                        input(type='text', name='username')
+                    button(type='submit') Submit
+                
+
+
+            

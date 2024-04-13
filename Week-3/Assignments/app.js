@@ -1,11 +1,42 @@
-// Server
 const express = require('express');
+const bodyParser = require('body-parser'); // not used, but leave it for better days
+const cookieParser = require('cookie-parser');
 
 const app = express();
+
+app.use(bodyParser.urlencoded( { extended: false}))
+app.use(cookieParser());
+
+app.set('view engine', 'pug');
+
+/******* 
+ 
+Routs
+
+*******/
+
+// Assignment 1
 
 app.get('/', (req, res) => {
     res.send('Hello, My Server!');
 });
+
+
+// Assignments 4 
+
+app.get('/myName', (req, res) => {
+    const username = req.cookies.username
+    // index pug template has username input button
+    res.render('index', { username: username })
+})
+
+app.get('/trackName', (req, res) => {
+    // Endpoint to only add cookie with username
+    res.cookie('username', req.query.username);
+    res.redirect('/myName');
+})
+
+// Assignment 2
 
 app.get('/data', (req, res) => {
     if(req.query.number){
@@ -22,6 +53,7 @@ app.get('/data', (req, res) => {
     }    
 })
 
+// Port 
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000')
