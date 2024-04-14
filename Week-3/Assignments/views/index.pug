@@ -1,17 +1,17 @@
 extends layout.pug
 
 block content
-    section#content 
-        p
-            if username
-                h2 Hi #{username}! 
-                
-            else
-                form(action='/trackName', method='get')
-                    label Choose username: 
-                        input(type='text', name='username')
-                    button(type='submit') Submit
-                
-
-
-            
+    section#mainPage
+        h2 Hello, My Server!
+        nav
+            ul  
+                li 
+                    a(href='/data') Assignment-2: No Input
+                li 
+                    a(href='/data?number=xyz') Assignment-2: Wrong Input
+                li 
+                    a(href='/data?number=5') Assignment-2: Get sum
+                li
+                    a(href='/sum.html') Assignment-3
+                li
+                    a(href='/myName') Assignment-4

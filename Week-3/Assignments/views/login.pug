@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+    section#content 
+        p
+            if username
+                h2 Hi, #{username}! 
+                form(action='/logout', method='post')
+                    button(type='submit') Log Out
+                
+            else
+                form(action='/trackName', method='get')
+                    label Choose username: 
+                        input(type='text', name='username')
+                    button(type='submit') Submit
+                
+
+
+            

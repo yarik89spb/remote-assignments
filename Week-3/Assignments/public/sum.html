@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Assignment-3</title>
+    </head>
+
+    <body>
+        <header>
+            1+2+3..+N = ? 
+        </header>
+
+        <main>
+            <h2>
+                <form id="callAJAX">
+                    <input type="text" id='userInput' placeholder="Enter a number">
+                    <button type="submit">Submit</button>
+                </form>
+            </h2>
+            <p id="output"></p>
+
+        </main>
+
+
+        <footer style="font-size: 0.5rem;">
+            <i > 其他網址使用 Pug template建立，但說明中強調要添加一個靜態 HTMLls 文件，在其中寫入 AJAX
+            </i>
+        </footer>    
+
+    <script>
+        const submissionForm = document.querySelector('#callAJAX');
+        submissionForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // get the number
+            let userUnput = document.querySelector('#userInput').value;
+            let outputHTML = document.querySelector('#output');
+            if(!parseInt(userUnput) || parseInt(userUnput) <= 0){
+                outputHTML.innerText = "要輸入數字 >= 1";
+                userInput.value = "";     
+            }else{
+                //document.querySelector('#output').innerText = "Input is correct";
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState === 1 && xhr.status === 200){
+                        outputHTML.innerText = `你的數字等於。。。`;
+                    }
+                    if (xhr.readyState === 4 && xhr.status === 200){
+                        outputHTML.innerText = '~阿布拉卡达布拉~'; 
+                        outputHTML.innerHTML += '<br> <img src="http://localhost:3000/img/secret.png" alt="magician"> <br>';
+                        outputHTML.innerHTML += `<h2 style="margin-left:150px;">${xhr.responseText} !<h2>`;
+                    }
+                    
+                }
+                xhr.open('GET', `/data?number=${userUnput}`);
+                xhr.send();
+                
+            }
+        }
+    );
+
+    </script>
+    </body>
+
+</html>
