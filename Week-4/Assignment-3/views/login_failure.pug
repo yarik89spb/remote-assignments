@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+    h3 Error: authorization failed 
+        p= errorContent.text
+    form(action='/', method='get')
+        button(type='submit') Back to login page

@@ -1,0 +1,33 @@
+extends layout.pug
+
+block content
+    section#register-login
+        p
+            form(action='/register', method='post')
+                p
+                    label Type e-mail:
+                        br
+                        i e.g. your_email@mail.com
+                        br
+                        input(type='text', name='email', required=true)
+                p
+                    label Choose password:
+                        br
+                        input(type='password', name='password', required=true)
+                button(type='submit') Register
+
+        p Already have account?
+            form(action='/login', method='post')
+                p
+                    label Type login (e-mail):
+                        br
+                        i e.g. your_email@mail.com 
+                        br
+                        input(type='text', name='email', required=true)
+                p
+                    label Type password:
+                        br
+                        input(type='password', name='password', required=true)
+                button(type='submit') Login
+
+
