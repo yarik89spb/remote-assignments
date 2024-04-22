@@ -2,3 +2,6 @@ extends layout.pug
 
 block content
     h2 Welcome, #{email}!
+    div
+        form(action='/logout', method='post')
+            button(type='submit') Log out

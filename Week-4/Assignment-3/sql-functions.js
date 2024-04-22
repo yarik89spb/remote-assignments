@@ -22,8 +22,13 @@ async function addUser(user_name, user_password){
 async function getUserPassword(user_name){
     try {
         const [user_password_query] = await pool.query(`SELECT user_password FROM user WHERE user_email = ?;`, [user_name])
-        const user_password = user_password_query[0].user_password
-        return user_password;
+        if(!user_password_query[0]){
+            return undefined;
+        }else{
+            const user_password = user_password_query[0].user_password
+            return user_password;
+        }        
+        
     } catch (error){
         console.error(error);
         throw error;

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser'); // not used, but leave it for better days
 const cookieParser = require('cookie-parser');
 const {  addUser, getUserPassword } = require('./sql-functions');
+const { addCredentialsCookies, getCredentialsCookies, clearCredentialsCookies } = require('./cookie-functions');
 
 const app = express();
 
@@ -13,7 +14,12 @@ app.use(cookieParser());
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    if(req.cookies.email && req.cookies.password){
+        res.redirect(`/welcome?email=${req.cookies.email}`);
+    }else{
+        res.render('index');
+    }
+    
 });
 
 app.get('/welcome', (req, res) => {
@@ -23,9 +29,18 @@ app.get('/welcome', (req, res) => {
 
 app.post('/register', async (req, res) => {
     const { email,  password} = req.body;
-    await addUser(email, password)
-    res.locals.userEmail = email;
-    res.redirect(`/welcome?email=${email}`);
+    const queryResult = await getUserPassword(email); // only check if user exists aleady
+    console.log()
+    if(!queryResult){
+        await addUser(email, password)
+        res.locals.userEmail = email;
+        res.redirect(`/welcome?email=${email}`);
+    }else{
+        const errorContent = {text: 'User already exists, please try login instead', status: 400};
+        res.render('login_failure', { errorContent: errorContent });
+    }
+
+    
 });
 
 
@@ -33,6 +48,7 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const correctPassword = await getUserPassword(email);
     if(password === correctPassword){
+        addCredentialsCookies(res, email, password)
         res.redirect(`/welcome?email=${email}`);
     }
     else{
@@ -41,6 +57,11 @@ app.post('/login', async (req, res) => {
     }   
 });
 
+
+app.post('/logout', (req, res) => {
+    clearCredentialsCookies(res);
+    res.redirect('/')
+})
 
 
 app.listen(3000, () => {
